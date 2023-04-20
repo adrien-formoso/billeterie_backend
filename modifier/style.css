@@ -1,0 +1,50 @@
+ /* styles pour le formulaire */
+ form {
+    width: 500px; /* largeur du formulaire */
+    margin: 50px auto; /* centrage horizontal et marge en haut */
+    border: 1px solid #ccc; /* bordure grise */
+    padding: 20px; /* espace intérieur */
+    border-radius: 10px; /* coins arrondis */
+  }
+  
+  /* styles pour les champs du formulaire */
+  label {
+    display: block; /* affichage en bloc */
+    margin-bottom: 10px; /* marge en bas */
+    font-weight: bold; /* texte en gras */
+  }
+  
+  input[type=text], select {
+    width: 100%; /* largeur du champ */
+    padding: 10px; /* espace intérieur */
+    border: 1px solid #ccc; /* bordure grise */
+    border-radius: 5px; /* coins arrondis */
+    margin-bottom: 20px; /* marge en bas */
+  }
+  
+  /* styles pour le bouton de soumission */
+  input[type=submit] {
+    background-color: #4CAF50; /* couleur de fond */
+    color: white; /* couleur du texte */
+    border: none; /* pas de bordure */
+    padding: 10px 20px; /* espace intérieur */
+    text-align: center; /* alignement du texte */
+    text-decoration: none; /* pas de soulignement */
+    display: inline-block; /* affichage en ligne */
+    font-size: 16px; /* taille de police */
+    border-radius: 5px; /* coins arrondis */
+    cursor: pointer; /* curseur pointeur au survol */
+  }
+
+  button {
+    background-color: #4CAF50; /* couleur de fond */
+    color: white; /* couleur du texte */
+    border: none; /* pas de bordure */
+    padding: 10px 20px; /* espace intérieur */
+    text-align: center; /* alignement du texte */
+    text-decoration: none; /* pas de soulignement */
+    display: inline-block; /* affichage en ligne */
+    font-size: 16px; /* taille de police */
+    border-radius: 5px; /* coins arrondis */
+    cursor: pointer; /* curseur pointeur au survol */
+  }

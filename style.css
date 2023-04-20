@@ -1,0 +1,19 @@
+      /* styles pour les boutons */
+      button {
+        background-color: #4CAF50; /* couleur de fond */
+        color: white; /* couleur du texte */
+        border: none; /* pas de bordure */
+        padding: 10px 20px; /* espace intérieur */
+        text-align: center; /* alignement du texte */
+        text-decoration: none; /* pas de soulignement */
+        display: inline-block; /* affichage en ligne */
+        font-size: 16px; /* taille de police */
+        margin: 10px; /* marge autour des boutons */
+        cursor: pointer; /* curseur pointeur au survol */
+      }
+      
+      /* style pour le conteneur des boutons */
+      .button-container {
+        text-align: center; /* alignement centré */
+        margin-top: 50px; /* marge en haut */
+      }
