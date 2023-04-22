@@ -1,10 +1,9 @@
-<?php
+<?php 
 
 $event_name = filter_input(INPUT_POST, "event_name");
-$event_date = filter_input(INPUT_POST, "event_date");
+
 $methode = filter_input(INPUT_SERVER, "REQUEST_METHOD");
 
-if (!empty($event_name)||!empty($event_date)) {
 // Type de moteur de BDD : mysql
 $moteur = "mysql";
 // Hôte : localhost
@@ -24,38 +23,30 @@ $pdo = new PDO(
     $motDePasse
 );
 
-$recup = $pdo->prepare("SELECT * FROM evenements WHERE nom = :event_name");
-// Etape 2 : j'exécute la requête
-$recup->execute(
-[
-  ":event_name" => $event_name,
-]
-);
-$resultat = $recup->fetchAll(PDO::FETCH_ASSOC);
-
 if ($methode == "POST") {
 
-  if (!empty($event_name)||!empty($event_date)) {
+    if (!empty($event_name)||!empty($event_date)) {
 
-    if ($recup->rowCount() == 0) {
-
-      $requete = $pdo->prepare("INSERT INTO `evenements`(`nom`, `date`) VALUES (:event_name,:event_date)");
-      $requete->execute(
+      $modif = $pdo->prepare("DELETE FROM `evenements` WHERE `nom`=:event_name;");
+      // Etape 2 : j'exécute la requête
+      $modif->execute(
       [
           ":event_name" => $event_name,
-          ":event_date" => $event_date
-      ]);
 
+      ]
+      );
       header('Location: ./confirm_page/index.php');
-      exit(); // Coupe PHP
-
+        exit(); // Coupe PHP
     } else {
-      header('Location: ./denied_page/index.php');
-      exit(); // Coupe PHP
-  }
+        echo "merci de renseigner les valeurs";
+    }
 }
-}
-}
+
+$recup = $pdo->prepare("SELECT nom FROM `evenements`");
+// Etape 2 : j'exécute la requête
+$recup->execute();
+$resultats_recup = $recup->fetchAll(PDO::FETCH_ASSOC);
+
 ?><!DOCTYPE html>
 <html>
 <head>
@@ -69,13 +60,17 @@ if ($methode == "POST") {
   <a href="../index.php"><button>Retour</button></a>
     <form method="POST">
         
-      <label for="event_name">Nom de l'événement :</label>
-      <input type="text" id="event_name" name="event_name" placeholder="Entrez le nom de l'événement" required>
-      
-      <label for="event_date">Date de l'événement :</label>
-      <input type="date" id="event_date" name="event_date" required>
+    <label for="event_name">Nom de l'événement :</label>
+      <select name="event_name" id="event_name" name="event_name" required>
+            <?php 
+                foreach($resultats_recup as $resultats) {
+                    echo '<option value="' . $resultats['nom'] . '">' . $resultats['nom'] . '</option>';
+                    // echo $resultats;
+                }
+            ?>
+      </select>
 
-      <input type="submit" value="Créer l'événement">
+      <input type="submit" value="Supprimer l'event">
     </form>
     
   </body>

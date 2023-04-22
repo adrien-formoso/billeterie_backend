@@ -9,9 +9,9 @@
 </head>
 <body>
 <div class="button-container">
-    <a href="./creer/index.php"><button>Créer un événement</button></a>
+      <a href="./creer/index.php"><button>Créer un événement</button></a>
       <a href="./modifier/index.php"><button>Modifier un événement</button></a>
-      <button>Annuler un événement</button>
+      <a href="./annuler/index.php"><button>Annuler un événement</button></a>
     </div>
 </body>
 </html>
